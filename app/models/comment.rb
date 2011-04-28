@@ -6,4 +6,9 @@ class Comment < ActiveRecord::Base
   # add this line in model 'user': 
   # ... has_many :comments
   belongs_to :author
+  
+  # 1:n relation between 'comment' and 'photo'
+  # add this line in model 'photo': 
+  # ... belongs_to :comment
+  has_many :photos
 end

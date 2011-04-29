@@ -16,7 +16,11 @@ class AlbumTest < ActiveSupport::TestCase
   
   test "should delete album" do
     @album.save
+    expected = @album.id
     assert @album.destroy, "did not deleted album"
+    assert_raise ActiveRecord::RecordNotFound do
+    	Album.find(expected)
+    end
   end
   
   test "should update attributes of album" do

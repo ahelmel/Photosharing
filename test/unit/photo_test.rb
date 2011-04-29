@@ -28,7 +28,11 @@ class PhotoTest < ActiveSupport::TestCase
   
   test "should delete photo" do
     @photo.save
+    expected = @photo.id
     assert @photo.destroy, "did not deleted photo"
+    assert_raise ActiveRecord::RecordNotFound do
+    	Photo.find(expected)
+    end
   end
   
   test "should update attributes of photo" do

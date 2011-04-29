@@ -24,7 +24,11 @@ class CommentTest < ActiveSupport::TestCase
   
   test "should delete comment" do
     @comment.save
+    expected = @comment.id
     assert @comment.destroy, "did not deleted comment"
+    assert_raise ActiveRecord::RecordNotFound do
+    	Comment.find(expected)
+    end
   end
   
   test "should update attributes of comment" do

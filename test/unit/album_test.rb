@@ -13,4 +13,8 @@ class AlbumTest < ActiveSupport::TestCase
   test "should create album" do
 	assert @album.save, "did not create album"
   end
+  
+  def teardown
+    @album = nil
+  end
 end

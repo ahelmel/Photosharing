@@ -21,4 +21,8 @@ class CommentTest < ActiveSupport::TestCase
   test "should respond to photos" do
   	assert_respond_to @comment, :photos, "do not have photos"
   end
+  
+  def teardown
+    @comment = nil
+  end
 end

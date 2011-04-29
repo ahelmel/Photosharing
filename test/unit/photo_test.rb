@@ -26,6 +26,18 @@ class PhotoTest < ActiveSupport::TestCase
   	assert_respond_to @photo, :comments, "do not have comments"
   end
   
+  test "should delete photo" do
+    @photo.save
+    assert @photo.destroy, "did not deleted photo"
+  end
+  
+  test "should update attributes of photo" do
+    @photo.save
+    @photo.update_attributes(:title => "neues photo1")
+    expected = Photo.find(@photo.id)
+  	assert @photo.update_attributes(:title => "neues photo1") && expected.title == "neues photo1", "did not updated attributes of photo"
+  end
+  
   def teardown
     @photo = nil
   end

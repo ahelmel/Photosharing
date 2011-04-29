@@ -22,6 +22,18 @@ class CommentTest < ActiveSupport::TestCase
   	assert_respond_to @comment, :photos, "do not have photos"
   end
   
+  test "should delete comment" do
+    @comment.save
+    assert @comment.destroy, "did not deleted comment"
+  end
+  
+  test "should update attributes of comment" do
+    @comment.save
+    @comment.update_attributes(:body => "Neue Beschreibung für Foto")
+    expected = Comment.find(@comment.id)
+  	assert @comment.update_attributes(:body => "Neue Beschreibung für Foto") && expected.body == "Neue Beschreibung für Foto", "did not updated attributes of comment"
+  end
+  
   def teardown
     @comment = nil
   end

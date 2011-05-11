@@ -10,16 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <table cellpadding="10">
+    <tr>
+      <td bgcolor="#DDDDDD">
+    
+        <div class="field">
+          <%= f.label :title %><br />
+          <%= f.text_field :title %>
+        </div>
+  
+        <div class="field">
+          <%= f.label :description %><br />
+          <%= f.text_area :description %>
+        </div>
+        
+        <br>
+        
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+  
+      </td>
+    </tr>
+  </table>
+  
 <% end %>

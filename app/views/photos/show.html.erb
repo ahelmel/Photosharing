@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @photo.title %>
-</p>
+<h1>Showing photo</h1>
 
 <p>
-  <b>Owner:</b>
-  <%= @photo.owner %>
+  <%= link_to 'Back', photos_path %> |
+  <%= link_to 'Edit', edit_photo_path(@photo) %>
 </p>
 
+<table cellpadding="10">
+  <tr>
+    <td bgcolor="#DDDDDD">
+    
+      <p>
+        <b>Title:</b>
+        <%= @photo.title %>
+      </p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+      <p>
+        <b>Image:</b>
+        <%= image_tag @photo.image.url %>
+      </p>
+
+    </td>
+  </tr>
+</table>

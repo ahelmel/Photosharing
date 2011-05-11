@@ -1,25 +1,43 @@
 <h1>Listing photos</h1>
 
+<p><%= link_to 'New Photo', new_photo_path %></p>
+
+<p><%= will_paginate %></p>
+
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Owner</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% i = 0 %>
+  <% @photos.each do |photo| %>
+    <% if i%4 == 0 %>
+      <tr>
+    <% end %>
+  	<td width="180" height="180" cellpadding="10" bgcolor="#DDDDDD">
 
-<% @photos.each do |photo| %>
-  <tr>
-    <td><%= photo.title %></td>
-    <td><%= photo.owner %></td>
-    <td><%= link_to 'Show', photo %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  		<table width="100%" height="100%">
+  			<tr height="30">
+  				<td align="center" >
+  					<%= photo.title %>
+  				</td>
+  			</tr>
+  			
+  			<tr height="120">
+  				<td align="center" >
+  					<%= image_tag photo.image.url(:thumb) %>
+  				</td>
+  			</tr>
+  			
+  			<tr height="30">
+  				<td align="center" >
+  		  			<%= link_to 'Show', photo %>&nbsp;
+          			<%= link_to 'Edit', edit_photo_path(photo) %>&nbsp;
+          			<%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>
+        		</td>
+  			</tr>
+        
+        </table>
+  	</td>
+    <% if i%4 == 3 %>
+      </tr>
+    <% end %>
+    <% i = i+1 %>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Photo', new_photo_path %>

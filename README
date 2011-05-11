@@ -6,6 +6,11 @@ comment out followint line: format.xml
 with: #
 
 
+== Directory for Images
+
+Photosharing/public/system/images/
+
+
 == Getting Started
 
 1. At the command prompt, create a new Rails application:

@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @album.title %>
-</p>
+<h1>Showing album</h1>
 
 <p>
-  <b>Description:</b>
-  <%= @album.description %>
+  <%= link_to 'Back', albums_path %> |
+  <%= link_to 'Edit', edit_album_path(@album) %>
 </p>
 
+<table cellpadding="10">
+  <tr>
+    <td bgcolor="#DDDDDD">
+    
+      <p>
+        <b>Title:</b>
+        <%= @album.title %>
+      </p>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+      <p>
+        <b>Description:</b>
+        <%= @album.description %>
+      </p>
+
+    </td>
+  </tr>
+</table>

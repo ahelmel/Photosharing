@@ -1,6 +1,8 @@
 <h1>Editing album</h1>
 
-<%= render 'form' %>
+<p>
+  <%= link_to 'Back', albums_path %> |
+  <%= link_to 'Show', @album %>
+</p>
 
-<%= link_to 'Show', @album %> |
-<%= link_to 'Back', albums_path %>
+<%= render 'form' %>

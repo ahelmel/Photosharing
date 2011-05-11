@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 93753d5c4da6488cce82e5378997dc3f5478ceff
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -64,10 +72,13 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  paperclip!
   rails (= 3.0.6)
   sqlite3-ruby
+  will_paginate (= 3.0.pre2)

@@ -2,11 +2,11 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
-    @photos = Photo.all
+    @photos = Photo.paginate(:page => params[:page], :per_page => 8)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @photos }
+      #format.xml  { render :xml => @photos }
     end
   end
 
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @photo }
+      #format.xml  { render :xml => @photo }
     end
   end
 
@@ -28,7 +28,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @photo }
+      #format.xml  { render :xml => @photo }
     end
   end
 
@@ -45,10 +45,10 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.save
         format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
-        format.xml  { render :xml => @photo, :status => :created, :location => @photo }
+        #format.xml  { render :xml => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -61,10 +61,10 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
-        format.xml  { head :ok }
+        #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -77,7 +77,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(photos_url) }
-      format.xml  { head :ok }
+      #format.xml  { head :ok }
     end
   end
 end

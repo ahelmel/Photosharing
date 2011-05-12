@@ -1,5 +1,5 @@
-<h1>New comment</h1>
+<h1>New comment for photo #<%= @photo.id %></h1>
+
+<p><%= link_to 'Back', album_photo_path(@album, @photo) %></p>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', comments_path %>

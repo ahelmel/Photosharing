@@ -2,12 +2,9 @@
 
 <h1>Showing album #<%= @album.id %></h1>
 
-<p>
-  <%= link_to 'Back', albums_path %> |
-  <%= link_to 'Edit', edit_album_path(@album) %>
-</p>
+<p><%= link_to 'Back', albums_path %></p>
 
-<table cellpadding="10">
+<table cellpadding="10" width="600">
   <tr>
     <td bgcolor="#DDDDDD">
     

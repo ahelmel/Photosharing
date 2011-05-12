@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @comments }
+      #format.xml  { render :xml => @comments }
     end
   end
 
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @comment }
+      #format.xml  { render :xml => @comment }
     end
   end
 
@@ -25,30 +25,37 @@ class CommentsController < ApplicationController
   # GET /comments/new.xml
   def new
     @comment = Comment.new
+    @photo = Photo.find(params[:photo_id])
+    @album = @photo.album
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @comment }
+      #format.xml  { render :xml => @comment }
     end
   end
 
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    @photo = @comment.photo
+    @album = @photo.album
   end
 
   # POST /comments
   # POST /comments.xml
   def create
+    @photo = Photo.find(params[:photo_id])
+    @album = @photo.album
     @comment = Comment.new(params[:comment])
+    @comment.photo = @photo
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully created.') }
+        #format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -57,14 +64,16 @@ class CommentsController < ApplicationController
   # PUT /comments/1.xml
   def update
     @comment = Comment.find(params[:id])
+    @photo = @comment.photo
+    @album = @photo.album
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully updated.') }
+        #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -73,11 +82,13 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+    @photo = @comment.photo
+    @album = @photo.album
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to(album_photo_path(@album, @photo)) }
+      #format.xml  { head :ok }
     end
   end
 end

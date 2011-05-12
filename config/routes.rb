@@ -1,7 +1,9 @@
 Photosharing::Application.routes.draw do
   resources :comments
 
-  resources :photos
+  resources :photos do
+  	resources :comments
+  end
 
   resources :albums do
   	resources :photos

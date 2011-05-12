@@ -31,4 +31,8 @@ class Photo < ActiveRecord::Base
   def created_at_date
   	created_at.to_datetime.strftime("%A %d %b %Y").squeeze(' ')
   end
+  
+  def number_of_comments
+  	comments.count
+  end
 end

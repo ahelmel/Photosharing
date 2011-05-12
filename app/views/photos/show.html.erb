@@ -3,11 +3,11 @@
 <h1>Showing photo #<%= @photo.id %></h1>
 
 <p>
-  <%= link_to 'Back', album_photos_path(@album) %> |
-  <%= link_to 'Edit', edit_album_photo_path(@album, @photo) %>
+	<%= link_to 'Back', album_photos_path(@album) %> |
+	<%= link_to 'New Comment', new_photo_comment_path(@photo) %>
 </p>
 
-<table cellpadding="10">
+<table cellpadding="10" width="600">
   <tr>
     <td bgcolor="#DDDDDD">
     
@@ -23,4 +23,24 @@
 
     </td>
   </tr>
+</table>
+
+<br>
+
+<% if @photo.comments.count > 0 %>
+	<p>Comments</p>
+<% end %>
+
+<table cellpadding="10" width="600">
+	<% @photo.comments.each do |c| %>
+		<tr>
+			<td bgcolor="#DDDDDD">
+				<b>User:</b> <%=  %><br>
+				<%= c.body %><br>
+				
+				<%= link_to 'Edit', edit_comment_path(c) %>&nbsp;
+          		<%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
 </table>

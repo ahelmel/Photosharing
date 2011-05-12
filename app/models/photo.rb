@@ -27,4 +27,8 @@ class Photo < ActiveRecord::Base
   # add this line in model 'comment': 
   # ... belongs_to :photo
   has_many :comments
+  
+  def created_at_date
+  	created_at.to_datetime.strftime("%A %d %b %Y").squeeze(' ')
+  end
 end

@@ -1,8 +1,8 @@
-<h1>Listing photos of album #</h1>
+<h1>Listing photos of album #<%= @album.id %></h1>
 
 <p>
-	<%= link_to 'Back', albums_path() %> |
-	<%= link_to 'New Photo', new_photo_path %>
+	<%= link_to 'Back', albums_path %> |
+	<%= link_to 'New Photo', new_album_photo_path(@album) %>
 </p>
 
 <p><%= will_paginate %></p>
@@ -30,8 +30,8 @@
   			
   			<tr height="30">
   				<td align="center" >
-  		  			<%= link_to 'Show', photo %>&nbsp;
-          			<%= link_to 'Edit', edit_photo_path(photo) %>&nbsp;
+  		  			<%= link_to 'Show', album_photo_path(@album, photo) %>&nbsp;
+          			<%= link_to 'Edit', edit_album_photo_path(@album, photo) %>&nbsp;
           			<%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>
         		</td>
   			</tr>

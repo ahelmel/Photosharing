@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Showing photo</h1>
+<h1>Showing photo #<%= @photo.id %></h1>
 
 <p>
-  <%= link_to 'Back', photos_path %> |
-  <%= link_to 'Edit', edit_photo_path(@photo) %>
+  <%= link_to 'Back', album_photos_path(@album) %> |
+  <%= link_to 'Edit', edit_album_photo_path(@album, @photo) %>
 </p>
 
 <table cellpadding="10">

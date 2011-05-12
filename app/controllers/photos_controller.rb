@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   # GET /photos.xml
   def index
     @photos = Photo.paginate(:page => params[:page], :per_page => 8)
+    @album = Album.find(params[:album_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class PhotosController < ApplicationController
   # GET /photos/1.xml
   def show
     @photo = Photo.find(params[:id])
+    @album = Album.find(params[:album_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class PhotosController < ApplicationController
   # GET /photos/new.xml
   def new
     @photo = Photo.new
+    @album = Album.find(params[:album_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +38,7 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    @album = Album.find(params[:album_id])
   end
 
   # POST /photos

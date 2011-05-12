@@ -16,7 +16,7 @@ class Photo < ActiveRecord::Base
   # 1:n relation between 'comment' and 'user'
   # add this line in model 'user': 
   # ... has_many :photos
-  belongs_to :owner
+  belongs_to :album
   
   # 1:n relation between 'comment' and 'photo'
   # add this line in model 'comment': 

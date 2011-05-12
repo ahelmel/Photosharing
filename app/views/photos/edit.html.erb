@@ -1,5 +1,5 @@
-<h1>Editing photo</h1>
+<h1>Editing photo #<%= @photo.id %></h1>
 
-<p><%= link_to 'Back', photos_path %></p>
+<p><%= link_to 'Back', album_photos_path(@album) %></p>
 
 <%= render 'form' %>

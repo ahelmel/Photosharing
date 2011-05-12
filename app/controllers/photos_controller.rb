@@ -2,8 +2,8 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
-    @photos = Photo.paginate(:page => params[:page], :per_page => 8)
     @album = Album.find(params[:album_id])
+    @photos = @album.photos.paginate(:page => params[:page], :per_page => 8)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,11 +44,13 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
+  	@album = Album.find(params[:album_id])
     @photo = Photo.new(params[:photo])
+    @photo.album = @album
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully created.') }
         #format.xml  { render :xml => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
@@ -60,11 +62,12 @@ class PhotosController < ApplicationController
   # PUT /photos/1
   # PUT /photos/1.xml
   def update
+    @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
-        format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
+        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully updated.') }
         #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,11 +79,12 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.xml
   def destroy
+    @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(photos_url) }
+      format.html { redirect_to(album_photos_path(@album)) }
       #format.xml  { head :ok }
     end
   end

@@ -1,6 +1,9 @@
-<h1>Listing photos</h1>
+<h1>Listing photos of album #</h1>
 
-<p><%= link_to 'New Photo', new_photo_path %></p>
+<p>
+	<%= link_to 'Back', albums_path() %> |
+	<%= link_to 'New Photo', new_photo_path %>
+</p>
 
 <p><%= will_paginate %></p>
 

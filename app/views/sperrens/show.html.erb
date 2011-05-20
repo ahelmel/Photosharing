@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Startdate:</b>
+  <%= @sperren.startDate %>
+</p>
+
+<p>
+  <b>Enddate:</b>
+  <%= @sperren.endDate %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @sperren.reason %>
+</p>
+
+
+<%= link_to 'Edit', edit_sperren_path(@sperren) %> |
+<%= link_to 'Back', sperrens_path %>

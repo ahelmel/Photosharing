@@ -1,4 +1,8 @@
 Photosharing::Application.routes.draw do
+  resources :sperrens
+
+  resources :people
+
   resources :comments
 
   resources :photos

@@ -9,7 +9,7 @@ class PersonTest < ActiveSupport::TestCase
     person = Person.new
 	assert !person.save, "shouldn't save person"
   end
-
+  
   test "shouldn't save without email" do
     person = Person.new(:username => "Admin", :password => "abc123", :domain => "Munich")
 	assert !person.save, "shouldn't save person"

@@ -30,6 +30,8 @@ GEM
     activesupport (3.0.6)
     arel (2.0.9)
     builder (2.1.2)
+    devise (1.1.rc0)
+      warden (~> 0.10.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
@@ -66,11 +68,14 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    warden (0.10.7)
+      rack (>= 1.0.0)
 
 PLATFORMS
   ruby
   x86-mingw32
 
 DEPENDENCIES
+  devise (= 1.1.rc0)
   rails (= 3.0.6)
   sqlite3-ruby

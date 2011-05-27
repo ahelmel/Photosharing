@@ -1,0 +1,28 @@
+<h2>Anmelden</h2>
+
+<%= form_for(resource_name, resource, :url => session_path(resource_name)) do |f| %>
+  <% if @person.errors.any? %>
+    <div style="border:thin solid red; margin:25px; background:#EE6363">
+		<ul>
+		  <% @person.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			blubb
+		  <% end %>
+		</ul>
+	</div>
+  <% end %>
+  
+  <p><%= f.label :username %><br />
+  <%= f.text_field :username %></p>
+  
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+  <% end -%>
+
+  <p><%= f.submit "Anmelden" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

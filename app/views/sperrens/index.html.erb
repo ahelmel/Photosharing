@@ -1,0 +1,27 @@
+<h1>Listing sperrens</h1>
+
+<table>
+  <tr>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Reason</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sperrens.each do |sperren| %>
+  <tr>
+    <td><%= sperren.startDate %></td>
+    <td><%= sperren.endDate %></td>
+    <td><%= sperren.reason %></td>
+    <td><%= link_to 'Show', sperren %></td>
+    <td><%= link_to 'Edit', edit_sperren_path(sperren) %></td>
+    <td><%= link_to 'Destroy', sperren, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sperren', new_sperren_path %>

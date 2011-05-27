@@ -4,6 +4,8 @@ gem 'rails', '3.0.6'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'will_paginate', '3.0.pre2'
+gem 'devise', '1.1.rc0'
+gem 'dynamic_form'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

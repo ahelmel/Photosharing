@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   # add file as property 
-  has_attached_file :image, :styles => { :thumb => "100x100" }
+  has_attached_file :image, :styles => { :thumb => "130x130" }
   
   # protect some of attributes of file
   attr_protected :image_file_name, :image_content_type, :image_size

@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Photosharing</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <title>Photosharing</title>
+	  <%= stylesheet_link_tag :all %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="top_container"> 
+			<div id="top_container_content">
+				<% if person_signed_in? %>
+    				<span class="text_white"><span class="text_light_blue">Herzlich Willkommen <%= current_person.username %></span>&nbsp;<a href="" class="link_white">Profil</a>&nbsp;|&nbsp;<%= link_to "Abmelden", destroy_person_session_path, :class => "link_white" %></span>
+  				<% end %>
+			</div>
+		</div> 
+		<div id="middle_container"> 
+			<div>
+				<img src="/images/roundedbox_ro.png" id="corner_top_right">
+			</div> 
+			<div id="page_content">
+				<%= yield %>
+			</div>
+			<div>
+				<img src="/images/roundedbox_ru.png" id="corner_bottom_right">
+			</div> 
+		</div>
+		<div id="bottom_container"> 
+			<div>
+				<span class="text_white">Arthur Helmel, Bastian Landherr, Kevin Virmani. Entwickelt für die Vorlesung Softwareengineering II. Alle Rechte vorbehalten.</span>
+			</div> 
+		</div>
+	</body>
 </html>

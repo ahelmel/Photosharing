@@ -1,52 +1,49 @@
-<h1>Listing photos of album #<%= @album.id %></h1>
-
-<p>
-	<%= link_to 'Back', albums_path %> |
-	<%= link_to 'New Photo', new_album_photo_path(@album) %>
-</p>
-
-<p><%= will_paginate %></p>
-
-<table>
-  <% i = 0 %>
-  <% @photos.each do |photo| %>
-    <% if i%4 == 0 %>
-      <tr>
-    <% end %>
-  	<td width="150" height="210" cellpadding="10" bgcolor="#DDDDDD">
-
-  		<table width="100%" height="100%">
-  			<tr height="30">
-  				<td align="center" >
-  					<%= photo.title %> (<%= photo.number_of_comments %>)
-  				</td>
-  			</tr>
-  			
-  			<tr height="120">
-  				<td align="center" >
-  					<%= image_tag photo.image.url(:thumb) %>
-  				</td>
-  			</tr>
-  			
-  			<tr height="30" valign="top">
-  				<td align="center" >
-  					<%= photo.created_at_date %>
-  				</td>
-  			</tr>
-  			
-  			<tr height="30">
-  				<td align="center" >
-  		  			<%= link_to 'Show', album_photo_path(@album, photo) %>&nbsp;
-          			<%= link_to 'Edit', edit_album_photo_path(@album, photo) %>&nbsp;
-          			<%= link_to 'Destroy', [@album, photo], :confirm => 'Are you sure?', :method => :delete %>
-        		</td>
-  			</tr>
-        
-        </table>
-  	</td>
-    <% if i%4 == 3 %>
-      </tr>
-    <% end %>
-    <% i = i+1 %>
-  <% end %>
-</table>
+<div id="page_title">
+	<div id="page_title_content">
+		<span class="title_black">Fotos im Album #<%= @album.id %></span>
+	</div>
+	<div id="page_title_actions">
+		<div class="actions_add"> 
+			<span><%= link_to 'Foto hinzufügen', new_album_photo_path(@album), :class => "link_white" %></span>
+		</div> 
+		<div class="actions_cancel"> 
+			<span><%= link_to 'Zurück', albums_path, :class => "link_white" %></span>
+		</div> 
+		<% if @photos.total_pages > 1 %>
+		<div class="actions_pages"> 
+			<span><%= will_paginate @photos %></span>
+		</div> 
+		<% end %>
+	</div> 
+</div>
+<div id="page_text">
+	<div class="row">
+	<% @photos.each do |photo| %>
+		<div class="cell">
+			<%= link_to album_photo_path(@album, photo) do %>
+			<div class="cell_image">
+				<%= image_tag photo.image.url(:thumb) %>
+			</div>
+			<% end %>
+			<% if photo.number_of_comments > 0 %>
+			<div class="cell_items">
+				<span><%= photo.number_of_comments %></span>
+			</div>
+			<% end %>
+			<div class="cell_title">
+				<span><%= photo.title %></span>
+			</div>
+			<div class="cell_link">
+				<%= link_to 'Ändern', edit_album_photo_path(@album, photo) %>&nbsp;|&nbsp;<%= link_to 'Löschen', [@album, photo], :confirm => 'Sind Sie sicher?', :method => :delete %>
+			</div>
+		</div>
+	<% end %>
+	</div> 
+	<% if @photos.count < 1 %>
+	<div id="error"> 
+		<span>
+			Es wurden keine Fotos gefunden
+		</span>
+	</div> 
+	<% end %>
+</div>

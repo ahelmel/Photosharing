@@ -1,38 +1,22 @@
 <%= form_for(@album) do |f| %>
-  <% if @album.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
-
-      <ul>
-      <% @album.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <table cellpadding="10" width="600">
-    <tr>
-      <td bgcolor="#DDDDDD">
-    
-        <div class="field">
-          <%= f.label :title %><br />
-          <%= f.text_field :title %>
-        </div>
-  
-        <div class="field">
-          <%= f.label :description %><br />
-          <%= f.text_area :description %>
-        </div>
-        
-        <br>
-        
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-  
-      </td>
-    </tr>
-  </table>
-  
+<div class="form">
+	<div class="caption"><%= f.label :title, "Titel" %><font class="point">*</font></div>
+	<%= f.text_field :title, :class => "text_field" %>
+	<div class="caption"><%= f.label :description, "Beschreibung" %></div>
+	<%= f.text_area :description, :class => "text_area" %>
+	<div id="not_null"> 
+		<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+	</div> 
+</div>
+<% if @album.errors.any? %>
+<div id="error"> 
+	<span>
+		<% @album.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+      	<% end %>
+	</span>
+</div> 
 <% end %>
+<% end %>
+
+

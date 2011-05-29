@@ -1,38 +1,16 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f| %>
-  <% if @person.errors.any? %>
-    <div style="border:thin solid red; margin:25px; background:#EE6363">
-		<ul>
-		  <% @person.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		  <% end %>
-		</ul>
+<div id="page_title">
+	<div id="page_title_content">
+		<span class="title_black">Registrieren</span>
 	</div>
-  <% end %>
-
-  <p><%= f.label :username %><br />
-  <%= f.text_field :username %></p>
-  
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-  
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-  
-  <p><%= f.label :domain %><br />
-  <%= f.text_field :domain %></p>
-  
-  <p><%= f.label :lastName %><br />
-  <%= f.text_field :lastName %></p>
-  
-  <p><%= f.label :firstName %><br />
-  <%= f.text_field :firstName %></p>
-  
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+	<div id="page_title_actions">
+		<div class="actions_save"> 
+			<span><%= link_to_function 'Registrieren', "register.submit()", :class => "link_white" %></span>
+		</div> 
+		<div class="actions_cancel"> 
+			<span><%= link_to 'Zurück', new_session_path(resource_name), :class => "link_white" %></span>
+		</div> 
+	</div> 
+</div>
+<div id="page_text">
+	<%= render 'form' %>
+</div>

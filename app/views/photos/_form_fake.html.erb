@@ -1,0 +1,13 @@
+<div class="form">
+	<div class="caption"><%= "Titel" %></div>
+	<div class="text_field_fake"><%= @photo.title %></div>
+	<div class="caption"><%= "Bild" %></div>
+	<div class="file_field_fake"><%= image_tag @photo.image.url %></div>
+</div>
+<% if notice %>
+<div id="success"> 
+	<span>
+        <%= notice %><br>
+	</span>
+</div> 
+<% end %>

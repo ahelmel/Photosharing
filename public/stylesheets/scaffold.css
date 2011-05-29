@@ -222,7 +222,7 @@ a
 .form .caption
 {
 	position:relative;
-	width:304px;
+	width:380px;
 	margin:0px 0px 10px 0px;
 	font-size:14px;
 	color:#000000;
@@ -231,7 +231,7 @@ a
 .form .text_field
 {
 	position:relative;
-	width:284px;
+	width:360px;
 	height:30px;
 	margin:0px 0px 20px 0px;
 	padding: 0px 8px 0px 8px;
@@ -246,7 +246,7 @@ a
 .form .text_field_fake
 {
 	position:relative;
-	width:284px;
+	width:360px;
 	height:30px;
 	margin:0px 0px 20px 0px;
 	padding: 0px 8px 0px 8px;
@@ -262,7 +262,7 @@ a
 .form .file_field
 {
 	position:relative;
-	width:284px;
+	width:360px;
 	height:30px;
 	margin:0px 0px 20px 0px;
 	padding: 0px 8px 0px 8px;
@@ -278,13 +278,17 @@ a
 {
 	position:relative;
 	margin:0px 0px 20px 0px;
-	padding: 0px 8px 0px 8px;
+	padding: 8px 8px 4px 8px;
+	
+	border:solid 2px;
+	border-color:#DDDDDD;
+	background-color:#DDDDDD;
 }
 
 .form .text_area
 {
 	position:relative;
-	width:284px;
+	width:360px;
 	height:160px;
 	margin:0px 0px 20px 0px;
 	padding: 4px 8px 0px 8px;
@@ -299,7 +303,7 @@ a
 .form .text_area_fake
 {
 	position:relative;
-	width:284px;
+	width:360px;
 	height:160px;
 	margin:0px 0px 20px 0px;
 	padding: 4px 8px 0px 8px;
@@ -360,9 +364,14 @@ a
 /* SUCCESS ------------------------------------------------------------------------------*/
 #success
 {
+	/*
 	position:relative;
-	width:450px;
 	margin:0px 0px 0px 450px;
+	*/
+	position:absolute;
+	left:450px;
+	bottom:0px;
+	width:450px;
 	padding:10px 0px 10px 20px;
 	background:url(/images/bg_success.png) top left no-repeat;
 }

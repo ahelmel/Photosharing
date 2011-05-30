@@ -466,7 +466,7 @@ a
 div.pagination 
 {
 	position:absolute;
-	left:20px;
+	left:15px;
 	top:10px;
 	width:150px;
 	text-align:center;
@@ -477,12 +477,14 @@ div.pagination
 	
 div.pagination a, div.pagination a:hover, div.pagination a:active 
 {
+	padding: 0px 2px 0px 2px;
 	text-decoration:none;
 	color:#FFFFFF;
 }
 
 div.pagination em 
 {
+	padding: 0px 2px 0px 2px;
 	font-style:normal;
 	color:#FF0000;
 }

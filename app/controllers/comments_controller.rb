@@ -49,10 +49,11 @@ class CommentsController < ApplicationController
     @comment.photo = @photo
     @comment.person = Person.find(current_person.id)
     @comments = @photo.comments.paginate(:page => params[:page], :per_page => 5)
+    @last_page = ((@comments.total_pages<1)? 1: @comments.total_pages)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(album_photo_path(@album, @photo, :page => @comments.total_pages), :notice => 'Comment was successfully created.') }
+        format.html { redirect_to(album_photo_path(@album, @photo, :page => @last_page), :notice => 'Comment was successfully created.') }
       else
         format.html { render :action => "new" }
       end

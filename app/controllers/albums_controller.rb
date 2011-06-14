@@ -40,8 +40,8 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
-    @albums = Album.paginate(:page => params[:page], :per_page => 5)
-    @last_page = ((@albums.total_pages<1)? 1: @albums.total_pages)
+    @pages = ((1.0+Album.count)/5.0).ceil
+    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @album.save

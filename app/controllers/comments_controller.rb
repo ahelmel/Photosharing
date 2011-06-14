@@ -48,8 +48,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.photo = @photo
     @comment.person = Person.find(current_person.id)
-    @comments = @photo.comments.paginate(:page => params[:page], :per_page => 5)
-    @last_page = ((@comments.total_pages<1)? 1: @comments.total_pages)
+    @pages = ((1.0+@photo.comments.count)/5.0).ceil
+    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @comment.save

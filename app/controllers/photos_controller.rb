@@ -51,8 +51,8 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.album = @album
     @photo.person = Person.find(current_person.id)
-    @photos = @album.photos.paginate(:page => params[:page], :per_page => 5)
-    @last_page = ((@photos.total_pages<1)? 1: @photos.total_pages)
+    @pages = ((1.0+@album.photos.count)/5.0).ceil
+    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @photo.save

@@ -1,14 +1,14 @@
-<div class="form">
-	<div class="caption"><%= "Titel" %></div>
-	<div class="text_field_fake"><%= @album.title %></div>
-	<div class="caption"><%= "Beschreibung" %></div>
-	<div class="text_area_fake"><%= @album.description %></div>
+<div class="column_left">
+	<div class="form">
+		<div class="caption"><%= "Titel" %></div>
+		<div class="text_field_fake"><%= @album.title %></div>
+		<div class="caption"><%= "Beschreibung" %></div>
+		<div class="text_area_fake"><%= @album.description %></div>
+	</div>
 </div>
 <% if notice %>
 <div id="success"> 
-	<span>
-        <%= notice %><br>
-	</span>
+	<span><%= notice %></span>
 </div> 
 <% end %>
 

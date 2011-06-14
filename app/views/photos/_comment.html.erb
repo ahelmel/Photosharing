@@ -1,0 +1,49 @@
+<div class="column_left">
+	<div class="cell_picture">
+		<div class="cell_picture_image">
+			<%= image_tag @photo.image.url(:medium) %>
+		</div>
+		<div class="cell_picture_title">
+			<span><%= @photo.title %></span>
+		</div>
+		<div class="cell_picture_author">
+			<span><%= @photo.person.username %></span>
+		</div>
+		<div class="cell_picture_date">
+			<span><%= @photo.created_at_date %></span>
+		</div>
+	</div>
+</div>
+<div class="column_right">
+	<div class="row">
+		<% @comments.each do |comment| %>
+		<div class="cell_comment">
+			<div class="cell_comment_header">
+				<div class="cell_comment_date">
+					<span><%= comment.created_at_date %></span>
+				</div>
+				<div class="cell_comment_user">
+					<span><%= comment.person.username %></span>
+				</div>
+			</div>
+			<div class="cell_comment_body">
+				<div class="cell_comment_text">
+					<span><%= comment.body %></span>
+				</div>
+				<%if comment.is_author(current_person) %>
+				<div class="cell_comment_links">
+					<%= link_to 'Ändern', edit_comment_path(comment)  %>&nbsp;|&nbsp;<%= link_to 'Löschen', comment, :confirm => 'Sind Sie sicher?', :method => :delete %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+<% if !notice %>
+<% if @comments.count < 1 %>
+<div id="error"> 
+	<span>Es wurden keine Kommentare gefunden</span>
+</div> 
+<% end %>
+<% end %>

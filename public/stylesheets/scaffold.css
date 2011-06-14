@@ -105,100 +105,133 @@ a
 	height:40px;
 }
 
-.actions_add
+div.actions_90
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:90px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_90.png) top left no-repeat;
+}
+
+div.actions_110
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:110px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_110.png) top left no-repeat;
+}
+
+div.actions_130
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:130px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_130.png) top left no-repeat;
+}
+
+div.actions_150
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:150px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_150.png) top left no-repeat;
+}
+
+div.actions_170
 {
 	float:left;
 	position:relative;
 	margin:0px 15px 0px 0px;
 	width:170px;
 	height:40px;
-	background:url(/images/bg_add_album.png) top left no-repeat;
-}
-
-.actions_add span
-{
-	position:absolute;
-	left:20px;
-	top:10px;
-	width:130px;
+	line-height:40px;
 	text-align:center;
-	font-size:14px;
-	color:#FFFFFF;
+	background:url(/images/btn_170.png) top left no-repeat;
 }
 
-.actions_pages
+div.actions_190
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:190px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_190.png) top left no-repeat;
+}
+
+div.actions_210
+{
+	float:left;
+	position:relative;
+	margin:0px 15px 0px 0px;
+	width:210px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url(/images/btn_210.png) top left no-repeat;
+}
+
+div.actions_230
 {
 	float:left;
 	position:relative;
 	margin:0px 15px 0px 0px;
 	width:230px;
 	height:40px;
-	background:url(/images/bg_pages.png) top left no-repeat;
-}
-
-.actions_password
-{
-	float:left;
-	position:relative;
-	margin:0px 15px 0px 0px;
-	width:170px;
-	height:40px;
-	background:url(/images/bg_password.png) top left no-repeat;
-}
-
-.actions_password span
-{
-	position:absolute;
-	left:10px;
-	top:10px;
-	width:150px;
+	line-height:40px;
 	text-align:center;
-	font-size:14px;
-	color:#FFFFFF;
-}
-
-.actions_save
-{
-	float:left;
-	position:relative;
-	margin:0px 15px 0px 0px;
-	width:130px;
-	height:40px;
-	background:url(/images/bg_save_album.png) top left no-repeat;
-}
-
-.actions_save span
-{
-	position:absolute;
-	left:20px;
-	top:10px;
-	width:90px;
-	text-align:center;
-	font-size:14px;
-	color:#FFFFFF;
-}
-
-.actions_cancel
-{
-	float:left;
-	position:relative;
-	margin:0px 15px 0px 0px;
-	width:130px;
-	height:40px;
-	background:url(/images/bg_save_album.png) top left no-repeat;
-}
-
-.actions_cancel span
-{
-	position:absolute;
-	left:20px;
-	top:10px;
-	width:90px;
-	text-align:center;
-	font-size:14px;
-	color:#FFFFFF;
+	background:url(/images/btn_230.png) top left no-repeat;
 }
 /* ACTIONS ------------------------------------------------------------------------------*/
+
+/* PAGINATE -----------------------------------------------------------------------------*/
+div.pagination 
+{
+	position:absolute;
+	width:100%;
+	text-align:center;
+	white-space:nowrap; 
+	font-size:14px;
+	color:#FFFFFF;
+}
+	
+div.pagination a, div.pagination a:hover, div.pagination a:active 
+{
+	padding: 0px 2px 0px 2px;
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+div.pagination em 
+{
+	padding: 0px 2px 0px 2px;
+	font-style:normal;
+	color:#FF0000;
+}
+
+div.pagination span.disabled
+{
+	color:#666666;
+}
+/* PAGINATE -----------------------------------------------------------------------------*/
 
 #page_text
 {
@@ -211,7 +244,7 @@ a
 .form
 {
 	position:relative;
-	width:450px;
+	width:100%;
 }
 
 .form .point
@@ -253,7 +286,7 @@ a
 	font:100% Verdana;
 	font-size:14px;
 	color:#000000;
-	line-height:26px;
+	line-height:30px;
 	border:solid 2px;
 	border-color:#DDDDDD;
 	background-color:#DDDDDD;
@@ -310,7 +343,7 @@ a
 	font:100% Verdana;
 	font-size:14px;
 	color:#000000;
-	line-height:26px;
+	line-height:30px;
 	border:solid 2px;
 	border-color:#DDDDDD;
 	background-color:#DDDDDD;
@@ -364,14 +397,13 @@ a
 /* SUCCESS ------------------------------------------------------------------------------*/
 #success
 {
-	/*
 	position:relative;
-	margin:0px 0px 0px 450px;
-	*/
-	position:absolute;
+	width:510px;
+	margin:0px 0px 0px 480px;
+	/*position:absolute;
 	left:450px;
 	bottom:0px;
-	width:450px;
+	width:450px;*/
 	padding:10px 0px 10px 20px;
 	background:url(/images/bg_success.png) top left no-repeat;
 }
@@ -384,18 +416,307 @@ a
 }
 /* SUCCESS ------------------------------------------------------------------------------*/
 
-/* TABLE with ROWS & CELLS --------------------------------------------------------------*/
-.row div
+/* ALBUM with ROWS & CELLS --------------------------------------------------------------*/
+div.cell_album
 {
-	float:left;
-	margin:0px 25px 20px 0px;
+	position:relative;
+	width:130px;
+	height:200px;
+	padding:15px 15px 15px 15px;
+	margin:0px 25px 0px 0px;
+	border:solid 2px;
+	border-color:#999999;
 }
 
+div.cell_album_image
+{
+	position:relative;
+	width:130px;
+	height:130px;
+	background-color:#CCCCCC;
+}
+
+div.cell_album_items
+{
+	position:absolute;
+	top:-2px;
+	right:-2px;
+	width:50px;
+	height:40px;
+	background:url(/images/bg_user.png) top left no-repeat;
+}
+
+div.cell_album_items span
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	color:#FFFFFF;
+}
+
+div.cell_album_title
+{
+	position:relative;
+	width:100%;
+	height:35px;
+	margin-top:10px;
+	overflow:hidden;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_album_links
+{
+	position:absolute;
+	width:100%;
+	bottom:15px;
+	font-size:14px;
+	color:#666666;
+}
+
+div.cell_album_links a, div.cell_album_links a:hover, div.cell_album_links a:active 
+{
+	font-size:14px;
+	color:#666666;
+}
+/* ALBUM with ROWS & CELLS --------------------------------------------------------------*/
+
+/* PHOTO with ROWS & CELLS --------------------------------------------------------------*/
+div.cell_photo
+{
+	position:relative;
+	width:130px;
+	height:200px;
+	padding:15px 15px 15px 15px;
+	margin:0px 25px 0px 0px;
+	border:solid 2px;
+	border-color:#999999;
+}
+
+div.cell_photo_image
+{
+	position:relative;
+	width:130px;
+	height:130px;
+	background-color:#CCCCCC;
+}
+
+div.cell_photo_items
+{
+	position:absolute;
+	top:-2px;
+	right:-2px;
+	width:50px;
+	height:40px;
+	background:url(/images/bg_user.png) top left no-repeat;
+}
+
+div.cell_photo_items span
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	color:#FFFFFF;
+}
+
+div.cell_photo_title
+{
+	position:relative;
+	width:100%;
+	height:35px;
+	margin-top:10px;
+	overflow:hidden;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_photo_links
+{
+	position:absolute;
+	width:100%;
+	bottom:15px;
+	font-size:14px;
+	color:#666666;
+}
+
+div.cell_photo_links a, div.cell_photo_links a:hover, div.cell_photo_links a:active 
+{
+	font-size:14px;
+	color:#666666;
+}
+/* PHOTO with ROWS & CELLS --------------------------------------------------------------*/
+
+/* PICTURE with ROWS & CELLS ------------------------------------------------------------*/
+div.cell_picture
+{
+	position:relative;
+	padding:5px 5px 5px 5px;
+	margin-bottom:25px;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_picture_image
+{
+	position:relative;
+}
+
+div.cell_picture_title
+{
+	position:relative;
+	width:100%;
+	height:20px;
+	margin-top:10px;
+	overflow:hidden;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_picture_author
+{
+	position:relative;
+	width:100%;
+	height:20px;
+	margin-top:10px;
+	overflow:hidden;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_picture_date
+{
+	position:relative;
+	width:100%;
+	height:20px;
+	margin-top:10px;
+	overflow:hidden;
+	font-size:14px;
+	color:#666666;
+}
+/* PICTURE with ROWS & CELLS ------------------------------------------------------------*/
+
+/* COMMENT with ROWS & CELLS ------------------------------------------------------------*/
+div.cell_comment
+{
+	position:relative;
+	width:446px;
+	margin:0px 25px 25px 0px;
+	border:solid 2px;
+	border-color:#999999;
+}
+
+div.cell_comment_user
+{
+	position:absolute;
+	right:0px;
+	width:160px;
+	height:100%;
+	overflow:hidden;
+	background:url(/images/bg_user.png) top left no-repeat;
+}
+
+div.cell_comment_user span
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	color:#FFFFFF;
+}
+
+div.cell_comment_date
+{
+	position:absolute;
+	width:280px;
+	height:100%;
+	line-height:40px;
+	padding:0px 0px 0px 15px;
+	overflow:hidden;
+	font-size:14px;
+	color:#666666;
+}
+
+div.cell_comment_header
+{
+	position:relative;
+	top:-2px;
+	left:-2px;
+	width:450px;
+	height:40px;
+	overflow:hidden;
+}
+
+div.cell_comment_body
+{
+	position:relative;
+	top:-2px;
+	width:420px;
+	padding:3px 13px 21px 13px;
+	overflow:hidden;
+}
+
+div.cell_comment_text
+{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	font-size:14px;
+	color:#000000;
+}
+
+div.cell_comment_links
+{
+	position:relative;
+	top:10px;
+	width:100%;
+	font-size:14px;
+	color:#666666;
+}
+
+div.cell_comment_links a, div.cell_comment_links a:hover, div.cell_comment_links a:active 
+{
+	font-size:14px;
+	color:#666666;
+}
+/* COMMENT with ROWS & CELLS ------------------------------------------------------------*/
+
+/* TABLE with ROWS & CELLS --------------------------------------------------------------*/
+.row
+{
+	float:left;
+	margin:0px 0px 30px 0px;
+}
+
+div.column_left
+{
+	position:relative;
+	width:450px;
+	padding:0px 0px 0px 0px;
+	margin:0px 20px 0px 0px;
+}
+
+div.column_right
+{
+	position:relative;
+	width:450px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+/*
 .cell
 {
 	position:relative;
 	width:160px;
-	height:210px;
+	height:230px;
 	font-size:14px;
 	color:#666666;
 	border:solid 2px;
@@ -460,40 +781,80 @@ a
 	font-size:14px;
 	color:#666666;
 }
+*/
 /* TABLE with ROWS & CELLS --------------------------------------------------------------*/
 
-/* PAGINATE -----------------------------------------------------------------------------*/
-div.pagination 
+/* TABLE with ROWS & CELLS --------------------------------------------------------------*/
+/*
+.comment
 {
-	position:absolute;
+	position:relative;
+	width:446px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+	font-size:14px;
+	color:#666666;
+	border:solid 2px;
+	border-color:#999999;
+}
+
+.comment_date
+{
+	position:relative;
+	top:10px;
+	left:15px;
+	width:196px;
+}
+
+.comment_title
+{
+	position:relative;
 	left:15px;
 	top:10px;
-	width:150px;
+	width:416px;
+}
+
+.comment_title span
+{
+	font-size:14px;
+	color:#000000;
+}
+
+.comment_user
+{
+	position:absolute;
+	top:-2px;
+	right:-27px;
+	width:160px;
+	height:40px;
+	background:url(/images/bg_user.png) top left no-repeat;
+}
+
+.comment_user span
+{
+	position:absolute;
+	top:10px;
+	width:33px;
+	margin:0px 10px 0px 10px;
 	text-align:center;
-	white-space:nowrap; 
 	font-size:14px;
 	color:#FFFFFF;
 }
-	
-div.pagination a, div.pagination a:hover, div.pagination a:active 
+
+.comment_link
 {
-	padding: 0px 2px 0px 2px;
-	text-decoration:none;
-	color:#FFFFFF;
+	position:relative;
+	left:15px;
+	width:416px;
 }
 
-div.pagination em 
+.comment_link a, .comment_link a:hover, .comment_link a:active 
 {
-	padding: 0px 2px 0px 2px;
-	font-style:normal;
-	color:#FF0000;
-}
-
-div.pagination span.disabled
-{
+	font-size:14px;
 	color:#666666;
 }
-/* PAGINATE -----------------------------------------------------------------------------*/
+*/
+/* TABLE with ROWS & CELLS --------------------------------------------------------------*/
 
 .text_light_blue
 {

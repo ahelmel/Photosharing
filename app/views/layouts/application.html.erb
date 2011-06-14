@@ -21,6 +21,11 @@
 			<div id="page_content">
 				<%= yield %>
 			</div>
+			<% if notice %>
+				<div id="success"> 
+					<span><%= notice %></span>
+				</div> 
+			<% end %>
 			<div>
 				<img src="/images/roundedbox_ru.png" id="corner_bottom_right">
 			</div> 

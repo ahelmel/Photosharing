@@ -1,12 +1,14 @@
 <%= form_for [@album, @photo], :html => { :multipart => true } do |f| %>
-<div class="form">
-	<div class="caption"><%= f.label :title, "Titel" %><font class="point">*</font></div>
-	<%= f.text_field :title, :class => "text_field" %>
-	<div class="caption"><%= f.label :image, "Bild" %><font class="point">*</font></div>
-	<%= f.file_field :image, :class => "file_field" %>
-	<div id="not_null"> 
-		<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
-	</div> 
+<div class="column_left">
+	<div class="form">
+		<div class="caption"><%= f.label :title, "Titel" %><font class="point">*</font></div>
+		<%= f.text_field :title, :class => "text_field" %>
+		<div class="caption"><%= f.label :image, "Bild" %><font class="point">*</font></div>
+		<%= f.file_field :image, :class => "file_field" %>
+		<div id="not_null"> 
+			<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+		</div> 
+	</div>
 </div>
 <% if @photo.errors.any? %>
 <div id="error"> 

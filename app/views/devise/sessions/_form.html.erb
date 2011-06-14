@@ -1,15 +1,17 @@
 <%= form_for(resource_name, resource, :url => session_path(resource_name), :html => { :id => "login" }) do |f| %>
-<div class="form">
-	<div class="caption"><%= f.label :username, "Benutzer" %><font class="point">*</font></div>
-	<%= f.text_field :username, :class => "text_field" %>
-	<div class="caption"><%= f.label :password, "Passwort" %><font class="point">*</font></div>
-	<%= f.password_field :password, :class => "text_field" %>
-	<% if devise_mapping.rememberable? -%>
-    	<div class="caption"><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me , "Eingelogt bleiben" %></div>
-  	<% end -%>
-	<div id="not_null"> 
-		<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
-	</div> 
+<div class="column_left">
+	<div class="form">
+		<div class="caption"><%= f.label :username, "Benutzer" %><font class="point">*</font></div>
+		<%= f.text_field :username, :class => "text_field" %>
+		<div class="caption"><%= f.label :password, "Passwort" %><font class="point">*</font></div>
+		<%= f.password_field :password, :class => "text_field" %>
+		<% if devise_mapping.rememberable? -%>
+			<div class="caption"><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me , "Eingelogt bleiben" %></div>
+		<% end -%>
+		<div id="not_null"> 
+			<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+		</div> 
+	</div>
 </div>
 <% if @person.errors.any? %>
 <div id="error"> 

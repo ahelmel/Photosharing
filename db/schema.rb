@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20110524165140) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
-    t.integer  "author_id"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "photo_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20110524165140) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
-    t.integer  "owner_id"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"

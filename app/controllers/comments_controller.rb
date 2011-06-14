@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.xml  { render :xml => @comments }
     end
   end
 
@@ -19,7 +18,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      #format.xml  { render :xml => @comment }
     end
   end
 
@@ -32,7 +30,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      #format.xml  { render :xml => @comment }
     end
   end
 
@@ -50,14 +47,14 @@ class CommentsController < ApplicationController
     @album = @photo.album
     @comment = Comment.new(params[:comment])
     @comment.photo = @photo
+    @comment.person = Person.find(current_person.id)
+    @comments = @photo.comments.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully created.') }
-        #format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.html { redirect_to(album_photo_path(@album, @photo, :page => @comments.total_pages), :notice => 'Comment was successfully created.') }
       else
         format.html { render :action => "new" }
-        #format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -72,10 +69,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully updated.') }
-        #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        #format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -89,8 +84,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(album_photo_path(@album, @photo)) }
-      #format.xml  { head :ok }
+      format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully deleted.') }
     end
   end
 end

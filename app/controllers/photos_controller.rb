@@ -5,11 +5,10 @@ class PhotosController < ApplicationController
   # GET /photos.xml
   def index
     @album = Album.find(params[:album_id])
-    @photos = @album.photos.paginate(:page => params[:page], :per_page => 8)
+    @photos = @album.photos.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.xml  { render :xml => @photos }
     end
   end
 
@@ -18,10 +17,11 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @album = Album.find(params[:album_id])
+    @person = Person.find(@photo.person.id)
+    @comments = @photo.comments.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # show.html.erb
-      #format.xml  { render :xml => @photo }
     end
   end
 
@@ -30,10 +30,10 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     @album = Album.find(params[:album_id])
+    @person = Person.find(current_person.id)
 
     respond_to do |format|
       format.html # new.html.erb
-      #format.xml  { render :xml => @photo }
     end
   end
 
@@ -41,6 +41,7 @@ class PhotosController < ApplicationController
   def edit
     @photo = Photo.find(params[:id])
     @album = Album.find(params[:album_id])
+    @person = Person.find(@photo.person.id)
   end
 
   # POST /photos
@@ -49,14 +50,13 @@ class PhotosController < ApplicationController
   	@album = Album.find(params[:album_id])
     @photo = Photo.new(params[:photo])
     @photo.album = @album
+    @photo.person = Person.find(current_person.id)
 
     respond_to do |format|
       if @photo.save
         format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully created.') }
-        #format.xml  { render :xml => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
-        #format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -70,10 +70,8 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully updated.') }
-        #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        #format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -86,8 +84,7 @@ class PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(album_photos_path(@album)) }
-      #format.xml  { head :ok }
+      format.html { redirect_to(album_photos_path(@album), :notice => 'Photo was successfully deleted.') }
     end
   end
 end

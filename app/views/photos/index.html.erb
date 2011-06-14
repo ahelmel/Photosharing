@@ -3,15 +3,15 @@
 		<span class="title_black">Fotos im Album #<%= @album.id %></span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_add"> 
+		<div class="actions_150"> 
 			<span><%= link_to 'Foto hinzufügen', new_album_photo_path(@album), :class => "link_white" %></span>
 		</div> 
-		<div class="actions_cancel"> 
+		<div class="actions_90"> 
 			<span><%= link_to 'Zurück', albums_path, :class => "link_white" %></span>
 		</div> 
 		<% if @photos.total_pages > 1 %>
-		<div class="actions_pages"> 
-			<span><%= will_paginate @photos %></span>
+		<div class="actions_150"> 
+			<%= will_paginate @photos %>
 		</div> 
 		<% end %>
 	</div> 
@@ -19,31 +19,31 @@
 <div id="page_text">
 	<div class="row">
 	<% @photos.each do |photo| %>
-		<div class="cell">
+		<div class="cell_photo">
 			<%= link_to album_photo_path(@album, photo) do %>
-			<div class="cell_image">
+			<div class="cell_photo_image">
 				<%= image_tag photo.image.url(:thumb) %>
 			</div>
 			<% end %>
 			<% if photo.number_of_comments > 0 %>
-			<div class="cell_items">
+			<div class="cell_photo_items">
 				<span><%= photo.number_of_comments %></span>
 			</div>
 			<% end %>
-			<div class="cell_title">
+			<div class="cell_photo_title">
 				<span><%= photo.title %></span>
 			</div>
-			<div class="cell_link">
+			<%if photo.is_owner(current_person) %>
+			<div class="cell_photo_links">
 				<%= link_to 'Ändern', edit_album_photo_path(@album, photo) %>&nbsp;|&nbsp;<%= link_to 'Löschen', [@album, photo], :confirm => 'Sind Sie sicher?', :method => :delete %>
 			</div>
+			<% end %>
 		</div>
 	<% end %>
 	</div> 
 	<% if @photos.count < 1 %>
 	<div id="error"> 
-		<span>
-			Es wurden keine Fotos gefunden
-		</span>
+		<span>Es wurden keine Fotos gefunden</span>
 	</div> 
 	<% end %>
 </div>

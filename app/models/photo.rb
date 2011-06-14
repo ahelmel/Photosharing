@@ -18,15 +18,15 @@ class Photo < ActiveRecord::Base
   # ... has_many :photos
   belongs_to :album
   
+  # 1:n relation between 'photo' and 'user'
+  # add this line in model 'user': 
+  # ... has_many :photos
+  belongs_to :person
+  
   # 1:n relation between 'comment' and 'photo'
   # add this line in model 'comment': 
   # ... has_many :photos
   belongs_to :comment
-  
-  # 1:n relation between 'comment' and 'user'
-  # add this line in model 'user': 
-  # ... has_many :photos
-  belongs_to :owner
   
   # 1:n relation between 'comment' and 'photo'
   # add this line in model 'comment': 
@@ -39,5 +39,9 @@ class Photo < ActiveRecord::Base
   
   def number_of_comments
   	comments.count
+  end
+  
+  def is_owner(current_person)
+  	person.id == current_person.id
   end
 end

@@ -1,18 +1,20 @@
 <%= form_for(@album) do |f| %>
-<div class="form">
-	<div class="caption"><%= f.label :title, "Titel" %><font class="point">*</font></div>
-	<%= f.text_field :title, :class => "text_field" %>
-	<div class="caption"><%= f.label :description, "Beschreibung" %></div>
-	<%= f.text_area :description, :class => "text_area" %>
-	<div id="not_null"> 
-		<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
-	</div> 
-</div>
+<div class="column_left">
+	<div class="form">
+		<div class="caption"><%= f.label :title, "Titel" %><font class="point">*</font></div>
+		<%= f.text_field :title, :class => "text_field" %>
+		<div class="caption"><%= f.label :description, "Beschreibung" %></div>
+		<%= f.text_area :description, :class => "text_area" %>
+		<div id="not_null"> 
+			<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+		</div> 
+	</div>
+</div> 
 <% if @album.errors.any? %>
 <div id="error"> 
 	<span>
 		<% @album.errors.full_messages.each do |msg| %>
-        <%= msg %><br>
+        	<%= msg %><br>
       	<% end %>
 	</span>
 </div> 

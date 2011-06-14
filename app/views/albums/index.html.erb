@@ -1,15 +1,14 @@
 <div id="page_title">
 	<div id="page_title_content">
 		<span class="title_black">Alben auflisten</span>
-		<br><%= current_person.username %>: <%= current_person.id %>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_add"> 
+		<div class="actions_170"> 
 			<span><%= link_to 'Album hinzufügen', new_album_path, :class => "link_white" %></span>
 		</div> 
 		<% if @albums.total_pages > 1 %>
-		<div class="actions_pages"> 
-			<span><%= will_paginate @albums %></span>
+		<div class="actions_150"> 
+			<%= will_paginate @albums %>
 		</div> 
 		<% end %>
 	</div> 
@@ -17,23 +16,23 @@
 <div id="page_text">
 	<div class="row">
 	<% @albums.each do |album| %>
-		<div class="cell">
+		<div class="cell_album">
 			<%= link_to album_photos_url(album) do %>
-			<div class="cell_image">
+			<div class="cell_album_image">
 				<!--
 					<img src="/images/album.png" border="0">
 				//--> 
 			</div>
 			<% end %>
 			<% if album.number_of_photos > 0 %>
-			<div class="cell_items">
+			<div class="cell_album_items">
 				<span><%= album.number_of_photos %></span>
 			</div>
 			<% end %>
-			<div class="cell_title">
+			<div class="cell_album_title">
 				<span><%= album.title %></span>
 			</div>
-			<div class="cell_link">
+			<div class="cell_album_links">
 				<%= link_to 'Ändern', edit_album_path(album) %>&nbsp;|&nbsp;<%= link_to 'Löschen', album, :confirm => 'Sind Sie sicher?', :method => :delete %>
 			</div>
 		</div>
@@ -41,9 +40,7 @@
 	</div> 
 	<% if Album.count < 1 %>
 	<div id="error"> 
-		<span>
-			Es wurden keine Alben gefunden
-		</span>
+		<span>Es wurden keine Alben gefunden</span>
 	</div> 
 	<% end %>
 </div>

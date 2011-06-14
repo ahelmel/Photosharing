@@ -18,4 +18,14 @@ class Person < ActiveRecord::Base
   validates :email, :presence => true, :email => true
   validates :domain, :presence => true
   belongs_to :picture
+  
+  # 1:n relation between 'person' and 'photo'
+  # add this line in model 'photo': 
+  # ... belongs_to :owner
+  has_many :photos
+  
+  # 1:n relation between 'person' and 'comment'
+  # add this line in model 'comment': 
+  # ... belongs_to :person
+  has_many :comments
 end

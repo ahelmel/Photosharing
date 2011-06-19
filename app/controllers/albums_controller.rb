@@ -40,12 +40,11 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
-    @pages = ((1.0+Album.count)/5.0).ceil
-    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to(albums_url(:page => @last_page), :notice => 'Album was successfully created.') }
+        @goto_page = @album.pageForUpdate(:id, 5)
+        format.html { redirect_to(albums_url(:page => @goto_page), :notice => 'Album was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -59,7 +58,8 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        format.html { redirect_to(albums_url, :notice => 'Album was successfully updated.') }
+        @goto_page = @album.pageForUpdate(:id, 5)
+        format.html { redirect_to(albums_url(:page => @goto_page), :notice => 'Album was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
@@ -70,11 +70,11 @@ class AlbumsController < ApplicationController
   # DELETE /albums/1.xml
   def destroy
     @album = Album.find(params[:id])
+    @goto_page = @album.pageForDelete(:id, 5)
+    
     @album.destroy
-
     respond_to do |format|
-      format.html { redirect_to(albums_url, :notice => 'Album was successfully deleted.') }
-      #format.html { redirect_to(albums_url) }
+      format.html { redirect_to(albums_url(:page => @goto_page), :notice => 'Album was successfully deleted.') }
     end
   end
 end

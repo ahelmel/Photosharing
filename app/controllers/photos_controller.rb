@@ -51,12 +51,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.album = @album
     @photo.person = Person.find(current_person.id)
-    @pages = ((1.0+@album.photos.count)/5.0).ceil
-    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to(album_photos_url(@album, :page => @last_page), :notice => 'Photo was successfully created.') }
+      	@goto_page = @photo.pageForUpdate(:id, 5)
+        format.html { redirect_to(album_photos_url(@album, :page => @goto_page), :notice => 'Photo was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -71,7 +70,8 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
-        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Photo was successfully updated.') }
+      	@goto_page = @photo.pageForUpdate(:id, 5)
+        format.html { redirect_to(album_photos_url(@album, :page => @goto_page), :notice => 'Photo was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
@@ -83,10 +83,11 @@ class PhotosController < ApplicationController
   def destroy
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
+    @goto_page = @photo.pageForDelete(:id, 5)
+    
     @photo.destroy
-
     respond_to do |format|
-      format.html { redirect_to(album_photos_path(@album), :notice => 'Photo was successfully deleted.') }
+	  format.html { redirect_to(album_photos_path(@album, :page => @goto_page), :notice => 'Photo was successfully deleted.') }
     end
   end
 end

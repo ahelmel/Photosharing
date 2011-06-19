@@ -35,6 +35,11 @@
 					<%= link_to 'Ändern', edit_comment_path(comment)  %>&nbsp;|&nbsp;<%= link_to 'Löschen', comment, :confirm => 'Sind Sie sicher?', :method => :delete %>
 				</div>
 				<% end %>
+				<% if !comment.is_author(current_person) %>
+				<div class="cell_comment_links">
+					<%= link_to 'Melden', complain_comment_path(comment), :confirm => 'Sind Sie sicher?' %>
+				</div>
+				<% end %>
 			</div>
 		</div>
 		<% end %>

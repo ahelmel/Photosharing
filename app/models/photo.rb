@@ -44,4 +44,18 @@ class Photo < ActiveRecord::Base
   def is_owner(current_person)
   	person.id == current_person.id
   end
+  
+  def complain
+ 	 Emailer.complain_email( "http://photosharing.com/bild.jpg", "Because of").deliver
+  end
+  
+  def pageForUpdate(order, per_page)
+    position = Photo.where("album_id = #{album.id} AND #{order} <= ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
+  
+  def pageForDelete(order, per_page)
+    position = Photo.where("album_id = #{album.id} AND #{order} < ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
 end

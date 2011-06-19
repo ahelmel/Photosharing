@@ -14,4 +14,14 @@ class Album < ActiveRecord::Base
   def number_of_photos
   	photos.count
   end
+  
+  def pageForUpdate(order, per_page)
+    position = Album.where("#{order} <= ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
+  
+  def pageForDelete(order, per_page)
+    position = Album.where("#{order} < ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
 end

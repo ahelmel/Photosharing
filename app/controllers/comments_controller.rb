@@ -48,12 +48,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.photo = @photo
     @comment.person = Person.find(current_person.id)
-    @pages = ((1.0+@photo.comments.count)/5.0).ceil
-    @last_page = (@pages<1)? 1: @pages
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(album_photo_path(@album, @photo, :page => @last_page), :notice => 'Comment was successfully created.') }
+        @goto_page = @comment.pageForUpdate(:id, 5)
+        format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Comment was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -69,7 +68,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully updated.') }
+        @goto_page = @comment.pageForUpdate(:id, 5)
+        format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Comment was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
@@ -82,10 +82,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @photo = @comment.photo
     @album = @photo.album
+    @goto_page = @comment.pageForDelete(:id, 5)
+    
     @comment.destroy
-
     respond_to do |format|
-      format.html { redirect_to(album_photo_path(@album, @photo), :notice => 'Comment was successfully deleted.') }
+      format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Comment was successfully deleted.') }
     end
   end
 end

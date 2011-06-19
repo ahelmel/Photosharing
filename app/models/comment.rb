@@ -19,4 +19,14 @@ class Comment < ActiveRecord::Base
   def is_author(current_person)
   	person.id == current_person.id
   end
+  
+  def pageForUpdate(order, per_page)
+    position = Comment.where("photo_id = #{photo.id} AND #{order} <= ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
+  
+  def pageForDelete(order, per_page)
+    position = Comment.where("photo_id = #{photo.id} AND #{order} < ?", self.send(order)).count
+    ((0.0+position)/per_page).ceil
+  end
 end

@@ -1,0 +1,16 @@
+<div id="page_title">
+	<div id="page_title_content">
+		<span class="title_black">Kommentar melden</span>
+	</div>
+	<div id="page_title_actions">
+		<div class="actions_110"> 
+			<span><%= link_to_function 'Abschicken', "complain_comment.submit()", :class => "link_white" %></span>
+		</div> 
+		<div class="actions_90"> 
+			<span><%= link_to 'Zurück', album_photo_path(@album, @photo), :class => "link_white" %></span>
+		</div> 
+	</div> 
+</div>
+<div id="page_text">
+	<%= render 'form' %>
+</div>

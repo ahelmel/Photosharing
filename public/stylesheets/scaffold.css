@@ -101,15 +101,21 @@ a
 {
 	position:absolute;
 	left:450px;
-	width:530px;
+	width:480px;
 	height:40px;
+}
+
+#page_title_actions_container
+{
+	position:absolute;
+	right:0px;
 }
 
 div.actions_90
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:90px;
 	height:40px;
 	line-height:40px;
@@ -121,7 +127,7 @@ div.actions_110
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:110px;
 	height:40px;
 	line-height:40px;
@@ -133,7 +139,7 @@ div.actions_130
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:130px;
 	height:40px;
 	line-height:40px;
@@ -145,7 +151,7 @@ div.actions_150
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:150px;
 	height:40px;
 	line-height:40px;
@@ -157,7 +163,7 @@ div.actions_170
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:170px;
 	height:40px;
 	line-height:40px;
@@ -169,7 +175,7 @@ div.actions_190
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:190px;
 	height:40px;
 	line-height:40px;
@@ -181,7 +187,7 @@ div.actions_210
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:210px;
 	height:40px;
 	line-height:40px;
@@ -193,7 +199,7 @@ div.actions_230
 {
 	float:left;
 	position:relative;
-	margin:0px 15px 0px 0px;
+	margin:0px 10px 0px 0px;
 	width:230px;
 	height:40px;
 	line-height:40px;
@@ -605,7 +611,7 @@ div.cell_picture_date
 div.cell_comment
 {
 	position:relative;
-	width:446px;
+	width:466px;
 	margin:0px 25px 25px 0px;
 	border:solid 2px;
 	border-color:#999999;
@@ -635,7 +641,7 @@ div.cell_comment_user span
 div.cell_comment_date
 {
 	position:absolute;
-	width:280px;
+	width:300px;
 	height:100%;
 	line-height:40px;
 	padding:0px 0px 0px 15px;
@@ -649,7 +655,7 @@ div.cell_comment_header
 	position:relative;
 	top:-2px;
 	left:-2px;
-	width:450px;
+	width:470px;
 	height:40px;
 	overflow:hidden;
 }
@@ -658,8 +664,8 @@ div.cell_comment_body
 {
 	position:relative;
 	top:-2px;
-	width:420px;
-	padding:3px 13px 21px 13px;
+	width:440px;
+	padding:8px 13px 21px 13px;
 	overflow:hidden;
 }
 
@@ -698,7 +704,7 @@ div.cell_comment_links a, div.cell_comment_links a:hover, div.cell_comment_links
 div.column_left
 {
 	position:relative;
-	width:450px;
+	width:430px;
 	padding:0px 0px 0px 0px;
 	margin:0px 20px 0px 0px;
 }
@@ -706,7 +712,7 @@ div.column_left
 div.column_right
 {
 	position:relative;
-	width:450px;
+	width:470px;
 	padding:0px 0px 0px 0px;
 	margin:0px 0px 0px 0px;
 }

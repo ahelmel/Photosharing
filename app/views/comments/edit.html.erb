@@ -3,12 +3,14 @@
 		<span class="title_black">Kommentar #<%= @comment.id %> ändern</span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_110"> 
-			<span><%= link_to_function 'Speichern', ["edit_comment_", @comment.id, ".submit()"], :class => "link_white" %></span>
-		</div> 
-		<div class="actions_90"> 
-			<span><%= link_to 'Zurück', album_photo_path(@album, @photo), :class => "link_white" %></span>
-		</div> 
+		<div id="page_title_actions_container">
+			<div class="actions_110"> 
+				<span><%= link_to_function 'Speichern', ["edit_comment_", @comment.id, ".submit()"], :class => "link_white" %></span>
+			</div> 
+			<div class="actions_90"> 
+				<span><%= link_to 'Zurück', album_photo_path(@album, @photo), :class => "link_white" %></span>
+			</div> 
+		</div>
 	</div> 
 </div>
 <div id="page_text">

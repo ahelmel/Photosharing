@@ -3,17 +3,19 @@
 		<span class="title_black">Foto #<%= @photo.id %> anzeigen</span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_210"> 
-			<span><%= link_to 'Kommentar hinzufügen', new_photo_comment_path(@photo), :class => "link_white" %></span>
+		<div id="page_title_actions_container">
+			<div class="actions_210"> 
+				<span><%= link_to 'Kommentar hinzufügen', new_photo_comment_path(@photo), :class => "link_white" %></span>
+			</div>
+			<div class="actions_90"> 
+				<span><%= link_to 'Zurück', album_photos_path(@album), :class => "link_white" %></span>
+			</div> 
+			<% if @comments.total_pages > 1 %>
+			<div class="actions_150"> 
+				<%= will_paginate @comments %>
+			</div> 
+			<% end %>
 		</div>
-		<div class="actions_90"> 
-			<span><%= link_to 'Zurück', album_photos_path(@album), :class => "link_white" %></span>
-		</div> 
-		<% if @comments.total_pages > 1 %>
-		<div class="actions_150"> 
-			<%= will_paginate @comments %>
-		</div> 
-		<% end %>
 	</div> 
 </div>
 <div id="page_text">

@@ -3,12 +3,14 @@
 		<span class="title_black">Foto #<%= @photo.id %> ändern</span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_110"> 
-			<span><%= link_to_function 'Speichern', ["edit_photo_", @photo.id, ".submit()"], :class => "link_white" %></span>
-		</div> 
-		<div class="actions_90"> 
-			<span><%= link_to 'Zurück', album_photos_path(@album), :class => "link_white" %></span>
-		</div> 
+		<div id="page_title_actions_container">
+			<div class="actions_110"> 
+				<span><%= link_to_function 'Speichern', ["edit_photo_", @photo.id, ".submit()"], :class => "link_white" %></span>
+			</div> 
+			<div class="actions_90"> 
+				<span><%= link_to 'Zurück', album_photos_path(@album), :class => "link_white" %></span>
+			</div> 
+		</div>
 	</div> 
 </div>
 <div id="page_text">

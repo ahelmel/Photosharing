@@ -1,61 +1,38 @@
 <%= form_for(@person) do |f| %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :domain %><br />
-    <%= f.text_field :domain %>
-  </div>
-  <div class="field">
-    <%= f.label :typ %><br />
-    <%= f.text_field :typ %>
-  </div>
-  <div class="field">
-    <%= f.label :lastName %><br />
-    <%= f.text_field :lastName %>
-  </div>
-  <div class="field">
-    <%= f.label :firstName %><br />
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.check_box :status %>
-  </div>
-  <div class="field">
-    <%= f.label :blockedTo %><br />
-    <%= f.date_select :blockedTo %>
-  </div>
-  <div class="field">
-    <%= f.label :signatur %><br />
-    <%= f.text_area :signatur %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.text_field :picture %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="column_left">
+	<div class="form">
+		<div class="caption"><%= f.label :username, "Benutzername" %><font class="point">*</font></div>
+		<%= f.text_field :username, :class => "text_field" %>
+		<div class="caption"><%= f.label :password, "Passwort" %><font class="point">*</font></div>
+		<%= f.text_field :password, :class => "text_field" %>
+		<div class="caption"><%= f.label :email, "Emailadresse" %><font class="point">*</font></div>
+		<%= f.text_field :email, :class => "text_field" %>
+		<div class="caption"><%= f.label :domain, "Gebiet" %><font class="point">*</font></div>
+		<%= f.text_field :domain, :class => "text_field" %>
+		<div class="caption"><%= f.label :picture, "Bild" %><font class="point">*</font></div>
+		<%= f.file_field :picture, :class => "file_field" %>
+		<div id="not_null"> 
+			<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+		</div> 
+	</div>
+</div> 
+<div class="column_right">
+	<div class="form">
+		<div class="caption"><%= f.label :lastName, "Nachname" %><font class="point">*</font></div>
+		<%= f.text_field :lastName, :class => "text_field" %>
+		<div class="caption"><%= f.label :firstName, "Vorname" %><font class="point">*</font></div>
+		<%= f.text_field :firstName, :class => "text_field" %>
+		<div class="caption"><%= f.label :signatur, "Signatur" %><font class="point">*</font></div>
+		<%= f.text_area :signatur, :class => "text_area" %>
+	</div> 
+</div> 
+<% if @person.errors.any? %>
+<div id="error"> 
+	<span>
+		<% @person.errors.full_messages.each do |msg| %>
+        	<%= msg %><br>
+      	<% end %>
+	</span>
+</div> 
+<% end %>
 <% end %>

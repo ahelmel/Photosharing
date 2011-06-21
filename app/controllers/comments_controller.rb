@@ -39,6 +39,29 @@ class CommentsController < ApplicationController
     @photo = @comment.photo
     @album = @photo.album
   end
+  
+  # GET /comments/1/complain
+  def complain
+    @comment = Comment.find(params[:id])
+    @photo = @comment.photo
+    @album = @photo.album
+  end
+  
+  # POST /comments
+  # POST /comments.xml
+  def complains
+    @comment = Comment.new(params[:comment])
+    @person = Person.find(current_person.id) 
+
+    #respond_to do |format|
+    #  if @comment.save
+    #    @goto_page = @comment.pageForUpdate(:id, 5)
+    #    format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Complain was successfully sent.') }
+    #  else
+    #    format.html { render :action => "complain" }
+    #  end
+    #end
+  end
 
   # POST /comments
   # POST /comments.xml

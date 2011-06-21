@@ -3,18 +3,20 @@
 		<span class="title_black">Fotos im Album #<%= @album.id %></span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_150"> 
-			<span><%= link_to 'Foto hinzufügen', new_album_photo_path(@album), :class => "link_white" %></span>
+		<div id="page_title_actions_container">
+			<div class="actions_150"> 
+				<span><%= link_to 'Foto hinzufügen', new_album_photo_path(@album), :class => "link_white" %></span>
+			</div> 
+			<div class="actions_90"> 
+				<span><%= link_to 'Zurück', albums_path, :class => "link_white" %></span>
+			</div> 
+			<% if @photos.total_pages > 1 %>
+			<div class="actions_150"> 
+				<%= will_paginate @photos %>
+			</div> 
+			<% end %>
 		</div> 
-		<div class="actions_90"> 
-			<span><%= link_to 'Zurück', albums_path, :class => "link_white" %></span>
-		</div> 
-		<% if @photos.total_pages > 1 %>
-		<div class="actions_150"> 
-			<%= will_paginate @photos %>
-		</div> 
-		<% end %>
-	</div> 
+	</div>
 </div>
 <div id="page_text">
 	<div class="row">

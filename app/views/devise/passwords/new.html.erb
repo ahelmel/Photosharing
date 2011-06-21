@@ -3,12 +3,14 @@
 		<span class="title_black">Passwort vergessen?</span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_130"> 
-			<span><%= link_to_function 'Abschicken', "forgot.submit()", :class => "link_white" %></span>
-		</div> 
-		<div class="actions_90"> 
-			<span><%= link_to 'Zurück', new_session_path(resource_name), :class => "link_white" %></span>
-		</div> 
+		<div id="page_title_actions_container">
+			<div class="actions_130"> 
+				<span><%= link_to_function 'Abschicken', "forgot.submit()", :class => "link_white" %></span>
+			</div> 
+			<div class="actions_90"> 
+				<span><%= link_to 'Zurück', new_session_path(resource_name), :class => "link_white" %></span>
+			</div> 
+		</div>
 	</div> 
 </div>
 <div id="page_text">

@@ -10,7 +10,7 @@
 		<div id="top_container"> 
 			<div id="top_container_content">
 				<% if person_signed_in? %>
-    				<span class="text_white"><span class="text_light_blue">Herzlich Willkommen <%= current_person.username %></span>&nbsp;<a href="" class="link_white">Profil</a>&nbsp;|&nbsp;<%= link_to "Abmelden", destroy_person_session_path, :class => "link_white" %></span>
+    				<span class="text_white"><span class="text_light_blue">Herzlich Willkommen <%= current_person.username %></span>&nbsp;<%= link_to "Profil", edit_person_path(current_person), :class => "link_white" %>&nbsp;|&nbsp;<%= link_to "Abmelden", destroy_person_session_path, :class => "link_white" %></span>
   				<% end %>
 			</div>
 		</div> 

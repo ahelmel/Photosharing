@@ -3,14 +3,16 @@
 		<span class="title_black">Alben auflisten</span>
 	</div>
 	<div id="page_title_actions">
-		<div class="actions_170"> 
-			<span><%= link_to 'Album hinzufügen', new_album_path, :class => "link_white" %></span>
-		</div> 
-		<% if @albums.total_pages > 1 %>
-		<div class="actions_150"> 
-			<%= will_paginate @albums %>
-		</div> 
-		<% end %>
+		<div id="page_title_actions_container">
+			<div class="actions_170"> 
+				<span><%= link_to 'Album hinzufügen', new_album_path, :class => "link_white" %></span>
+			</div> 
+			<% if @albums.total_pages > 1 %>
+			<div class="actions_150"> 
+				<%= will_paginate @albums %>
+			</div> 
+			<% end %>
+		</div>
 	</div> 
 </div>
 <div id="page_text">

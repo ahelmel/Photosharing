@@ -21,3 +21,7 @@
 <div id="page_text">
 	<%= render 'comment' %>
 </div>
+<div id="full_image_container" class="container_hidden">
+	<div id="full_image_background"></div>
+	<div id="full_image"><%= link_to_function(image_tag(@photo.image.url(:large)), "show_full_image_popup()") %></div>
+</div>

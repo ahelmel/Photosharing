@@ -1,7 +1,7 @@
 <div class="column_left">
 	<div class="cell_picture">
 		<div class="cell_picture_image">
-			<%= image_tag @photo.image.url(:medium) %>
+			<%= link_to_function(image_tag(@photo.image.url(:medium)), "show_full_image_popup()") %>
 		</div>
 		<div class="cell_picture_title">
 			<span><%= @photo.title %></span>

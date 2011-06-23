@@ -10,6 +10,7 @@
 		</div> 
 	</div>
 </div> 
+<% if !notice %>
 <% if @album.errors.any? %>
 <div id="error"> 
 	<span>
@@ -18,6 +19,7 @@
       	<% end %>
 	</span>
 </div> 
+<% end %>
 <% end %>
 <% end %>
 

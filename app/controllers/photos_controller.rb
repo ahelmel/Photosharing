@@ -55,6 +55,9 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.save
       	@goto_page = @photo.pageForUpdate(:id, 5)
+      	if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(album_photos_url(@album, :page => @goto_page), :notice => 'Photo was successfully created.') }
       else
         format.html { render :action => "new" }
@@ -71,6 +74,9 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
       	@goto_page = @photo.pageForUpdate(:id, 5)
+      	if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(album_photos_url(@album, :page => @goto_page), :notice => 'Photo was successfully updated.') }
       else
         format.html { render :action => "edit" }
@@ -84,7 +90,10 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
     @goto_page = @photo.pageForDelete(:id, 5)
-    
+    if @goto_page < 1
+      @goto_page = 1
+    end
+      	
     @photo.destroy
     respond_to do |format|
 	  format.html { redirect_to(album_photos_path(@album, :page => @goto_page), :notice => 'Photo was successfully deleted.') }

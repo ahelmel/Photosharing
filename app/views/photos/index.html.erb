@@ -43,9 +43,11 @@
 		</div>
 	<% end %>
 	</div> 
+	<% if !notice %>
 	<% if @photos.count < 1 %>
 	<div id="error"> 
 		<span>Es wurden keine Fotos gefunden</span>
 	</div> 
+	<% end %>
 	<% end %>
 </div>

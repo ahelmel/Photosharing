@@ -8,6 +8,7 @@
 		</div> 
 	</div>
 </div>
+<% if !notice %>
 <% if @comment.errors.any? %>
 <div id="error"> 
 	<span>
@@ -16,5 +17,6 @@
       	<% end %>
 	</span>
 </div> 
+<% end %>
 <% end %>
 <% end %>

@@ -44,6 +44,9 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       if @album.save
         @goto_page = @album.pageForUpdate(:id, 5)
+        if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(albums_url(:page => @goto_page), :notice => 'Album was successfully created.') }
       else
         format.html { render :action => "new" }
@@ -59,6 +62,9 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       if @album.update_attributes(params[:album])
         @goto_page = @album.pageForUpdate(:id, 5)
+        if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(albums_url(:page => @goto_page), :notice => 'Album was successfully updated.') }
       else
         format.html { render :action => "edit" }
@@ -71,6 +77,9 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find(params[:id])
     @goto_page = @album.pageForDelete(:id, 5)
+    if @goto_page < 1
+      @goto_page = 1
+	end
     
     @album.destroy
     respond_to do |format|

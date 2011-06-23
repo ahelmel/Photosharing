@@ -75,6 +75,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         @goto_page = @comment.pageForUpdate(:id, 5)
+        if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Comment was successfully created.') }
       else
         format.html { render :action => "new" }
@@ -92,6 +95,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         @goto_page = @comment.pageForUpdate(:id, 5)
+        if @goto_page < 1
+      		@goto_page = 1
+      	end
         format.html { redirect_to(album_photo_path(@album, @photo, :page => @goto_page), :notice => 'Comment was successfully updated.') }
       else
         format.html { render :action => "edit" }
@@ -106,6 +112,9 @@ class CommentsController < ApplicationController
     @photo = @comment.photo
     @album = @photo.album
     @goto_page = @comment.pageForDelete(:id, 5)
+    if @goto_page < 1
+      @goto_page = 1
+    end
     
     @comment.destroy
     respond_to do |format|

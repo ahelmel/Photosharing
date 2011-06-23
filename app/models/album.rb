@@ -15,6 +15,10 @@ class Album < ActiveRecord::Base
   	photos.count
   end
   
+  def last_photo
+  	photos.last
+  end
+  
   def pageForUpdate(order, per_page)
     position = Album.where("#{order} <= ?", self.send(order)).count
     ((0.0+position)/per_page).ceil

@@ -21,9 +21,9 @@
 		<div class="cell_album">
 			<%= link_to album_photos_url(album) do %>
 			<div class="cell_album_image">
-				<!--
-					<img src="/images/album.png" border="0">
-				//--> 
+				<% if album.last_photo %>
+				<%= image_tag(album.last_photo.image.url(:thumb)) %>
+				<% end %>
 			</div>
 			<% end %>
 			<% if album.number_of_photos > 0 %>
@@ -40,9 +40,11 @@
 		</div>
 	<% end %>
 	</div> 
+	<% if !notice %>
 	<% if Album.count < 1 %>
 	<div id="error"> 
 		<span>Es wurden keine Alben gefunden</span>
 	</div> 
+	<% end %>
 	<% end %>
 </div>

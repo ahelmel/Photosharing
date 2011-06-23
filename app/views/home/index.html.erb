@@ -1,0 +1,11 @@
+<div id="user_nav" align="right">
+  <% if person_signed_in? %>
+    <%= link_to "Sign out", destroy_person_session_path %><br />
+	<div align="left"><h1>Hallo <%= current_person.username %></h1></div>
+  <% else %>
+    <%= link_to "sign in", new_person_session_path %> or <%= link_to "Sign up", new_person_registration_path %>
+  <% end %>
+</div>
+
+
+

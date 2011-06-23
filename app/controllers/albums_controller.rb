@@ -1,8 +1,10 @@
 class AlbumsController < ApplicationController
+  before_filter :authenticate_person! 
+
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.paginate(:page => params[:page], :per_page => 8)
+    @albums = Album.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +49,9 @@ class AlbumsController < ApplicationController
         format.html { redirect_to(@album, :notice => 'Album was successfully created.') }
         #format.xml  { render :xml => @album, :status => :created, :location => @album }
       else
+      	#???
         format.html { render :action => "new" }
+        #format.html { redirect_to(new_album_path) }
         #format.xml  { render :xml => @album.errors, :status => :unprocessable_entity }
       end
     end

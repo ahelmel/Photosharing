@@ -1,0 +1,18 @@
+<%= form_for(resource_name, resource, :url => password_path(resource_name), :html => { :id => "forgot" }) do |f| %>
+<div class="form">
+	<div class="caption"><%= f.label :email, "Email" %><font class="point">*</font></div>
+	<%= f.text_field :email, :class => "text_field" %>
+	<div id="not_null"> 
+		<span>Mit <font class="point">*</font> gekennzeichnete Felder sind Pflichtangaben</span>
+	</div> 
+</div>
+<% if @person.errors.any? %>
+<div id="error"> 
+	<span>
+		<% @person.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+      	<% end %>
+	</span>
+</div> 
+<% end %>
+<% end %>

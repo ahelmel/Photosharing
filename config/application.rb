@@ -41,5 +41,8 @@ module Photosharing
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    # Enables autoloading of all files in lib folder
+	config.autoload_paths += %W(#{config.root}/lib)
   end
 end

@@ -1,5 +1,16 @@
-<h1>New photo in album #<%= @album.id %></h1>
-
-<p><%= link_to 'Back', album_photos_path(@album) %></p>
-
-<%= render 'form' %>
+<div id="page_title">
+	<div id="page_title_content">
+		<span class="title_black">Foto hinzufügen</span>
+	</div>
+	<div id="page_title_actions">
+		<div class="actions_save"> 
+			<span><%= link_to_function 'Speichern', "new_photo.submit()", :class => "link_white" %></span>
+		</div> 
+		<div class="actions_cancel"> 
+			<span><%= link_to 'Zurück', album_photos_path(@album), :class => "link_white" %></span>
+		</div> 
+	</div> 
+</div>
+<div id="page_text">
+	<%= render 'form' %>
+</div>

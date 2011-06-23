@@ -1,0 +1,16 @@
+<div id="page_title">
+	<div id="page_title_content">
+		<span class="title_black">Registrieren</span>
+	</div>
+	<div id="page_title_actions">
+		<div class="actions_save"> 
+			<span><%= link_to_function 'Registrieren', "register.submit()", :class => "link_white" %></span>
+		</div> 
+		<div class="actions_cancel"> 
+			<span><%= link_to 'Zurück', new_session_path(resource_name), :class => "link_white" %></span>
+		</div> 
+	</div> 
+</div>
+<div id="page_text">
+	<%= render 'form' %>
+</div>

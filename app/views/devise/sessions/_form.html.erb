@@ -13,6 +13,7 @@
 		</div> 
 	</div>
 </div>
+<!--
 <% if @person.errors.any? %>
 <div id="error"> 
 	<span>
@@ -21,5 +22,13 @@
       	<% end %>
 	</span>
 </div> 
+<% end %>
+//-->
+<% flash.each do |name, msg| %>
+    <div id="error"> 
+        <span>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        </span>
+    </div> 
 <% end %>
 <% end %>

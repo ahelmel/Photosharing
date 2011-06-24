@@ -13,9 +13,9 @@ class Person < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :domain
-  validates :username, :presence => true, :uniqueness => true
-  validates :password, :presence => true 
-  validates :email, :presence => true, :email => true
+  #validates :username, :presence => true, :uniqueness => true
+  #validates :password, :presence => true 
+  #validates :email, :presence => true, :email => true
   validates :domain, :presence => true
   belongs_to :picture
   
